@@ -11,6 +11,8 @@ initApp = ->
     return unless isCurrentPageShowingObj()
     objDataLines = $(".blob-line-code pre .line").map -> $(@).text()
     objData = objDataLines.toArray().join("\n")
-    $(".blob-wrapper.js-blob-data").html("<pre>#{objData}</pre>")
+    el = $(".blob-wrapper.js-blob-data")
+    el.html("")
+    drawCube(el.get(0), 912, 465)
 
 $(initApp)
