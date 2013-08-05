@@ -5,12 +5,12 @@ endsWith = (str, search) -> str.search("#{search}$") > 0
 isCurrentPageShowingObj = ->
     url = window.location.href
     filename = last(url.split("/"))
-    if contains(url, "/blob/") and endsWith(filename, ".obj")
-        alert "this page has an obj"
-    else 
-        alert "this page doesnt have an obj"
-    return
+    return contains(url, "/blob/") and endsWith(filename, ".obj")
 
-initApp = -> isCurrentPageShowingObj()    
+initApp = ->
+    return unless isCurrentPageShowingObj()
+    objDataLines = $(".blob-line-code pre .line").map -> $(@).text()
+    objData = objDataLines.toArray().join("\n")
+    $(".blob-wrapper.js-blob-data").html("<pre>#{objData}</pre>")
 
 $(initApp)
