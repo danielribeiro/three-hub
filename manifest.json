@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "Three-Hub",
+  "description": "This extension allows you to see 3d models from github directly",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": ["*://www.github.com/*", "*://github.com/*"],
+      "css": [],
+      "js": ["vendor/jquery-2.0.3.js", "lib/app.js"]
+    }
+  ],
+  "permissions": [
+    "https://api.github.com/"
+  ]
+}
