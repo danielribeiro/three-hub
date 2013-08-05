@@ -8,8 +8,13 @@
   "content_scripts": [
     {
       "matches": ["*://www.github.com/*", "*://github.com/*"],
-      "css": [],
-      "js": ["vendor/jquery-2.0.3.js", "lib/app.js"]
+      "js": [
+        "vendor/jquery-2.0.3.js",
+        "vendor/three.js",
+        "vendor/stats.min.js",
+        "lib/app.js"
+
+      ]
     }
   ],
   "permissions": [
