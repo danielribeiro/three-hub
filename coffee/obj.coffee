@@ -9,21 +9,14 @@ objScene =
         @animate()
 
     init: (obj, width, height) ->
-        # CAMERA
-        SCREEN_WIDTH = width
-        SCREEN_HEIGHT = height
-        VIEW_ANGLE = 45
-        ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT
-        NEAR = 0.1
-        FAR = 20000
-        @camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR)
+        @camera = @buildCamera_(width, height)
         @scene.add @camera
         @camera.position.set 0, 150, 400
         @camera.lookAt @scene.position
         @controls = new THREE.OrbitControls(@camera, @renderer.domElement)
 
         # RENDERER
-        @renderer.setSize SCREEN_WIDTH, SCREEN_HEIGHT
+        @renderer.setSize width, height
         @domTarget.appendChild @renderer.domElement
 
         # LIGHT
@@ -56,8 +49,13 @@ objScene =
         @controls.update()
         @camera.up = new THREE.Vector3(0, 1, 0)
 
-#private methods
-
+    #private methods
+    buildCamera_: (width, height) ->
+        viewAngle = 45
+        aspect = width / height
+        near = 0.1
+        far = 20000
+        new THREE.PerspectiveCamera(viewAngle, aspect, near, far)
 
     setTexture_: (object) ->
         material = new THREE.MeshNormalMaterial()
