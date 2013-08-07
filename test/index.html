@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Three-hub test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <style>
+        body {
+            margin: 0px;
+            overflow: hidden;
+        }
+        #container {
+            background-color: #ccccff;
+            margin: 10% auto;
+            width: 912px;
+        }
+    </style>
+    <script src="../vendor/jquery-2.0.3.js"></script>
+    <script src="../vendor/three.js"></script>
+    <script src="../vendor/OrbitControls.js"></script>
+    <script src="../vendor/OBJLoader.js"></script>
+    <script src="../test/objdata.js"></script>
+    <script src="../lib/obj.js"></script>
+    <script>
+        $(function(){
+            drawObj(objdata.join("\n"), $("#container").get(0), 912, 465)
+        });
+    </script>
+</head>
+<body>
+
+<div id="container"></div>
+
+</body>
+</html>
