@@ -13,6 +13,6 @@ initApp = ->
     objData = objDataLines.toArray().join("\n")
     el = $(".blob-wrapper.js-blob-data")
     el.html("")
-    drawCube(el.get(0), 912, 465)
+    drawObj(objdata.join("\n"), el.get(0), 912, 465)
 
 $(initApp)

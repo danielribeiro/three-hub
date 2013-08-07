@@ -1,4 +1,4 @@
-@drawCube = (domTarget, targetWidth, targetHeight) ->
+@drawObj = (obj, domTarget, targetWidth, targetHeight) ->
   container = null
   scene = null
   camera = null
@@ -60,7 +60,7 @@
       object.scale.set 20, 20, 20
       scene.add object
 
-    objmesh = loader.parse(objdata.join("\n"))
+    objmesh = loader.parse(obj)
     doit objmesh
     objmesh.position.set 0, 40, 0
     scene.add objmesh
