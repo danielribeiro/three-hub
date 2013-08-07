@@ -33,8 +33,16 @@ objScene =
         loader = new THREE.OBJLoader()
         objmesh = loader.parse(obj)
         @setTexture_ objmesh
+        bbox = new THREE.Box3()
+        objmesh.traverse (child) ->
+            return unless child instanceof THREE.Mesh
+            child.geometry.computeBoundingBox()
+            box = child.geometry.boundingBox
+            bbox.min.min box.min
+            bbox.max.max box.max
         objmesh.position.set 0, 1, 0
-        objmesh.scale.set 20, 20, 20
+        objmesh.scale.set 200, 200, 200
+        #TODO: use bouding box to set scale
         objmesh
 
     buildCamera_: (width, height) ->
