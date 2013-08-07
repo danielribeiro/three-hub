@@ -1,15 +1,10 @@
 @drawObj = (obj, domTarget, targetWidth, targetHeight) ->
-  container = null
-  scene = null
+  scene = new THREE.Scene()
   camera = null
-  renderer = null
+  renderer = new THREE.WebGLRenderer(antialias: true)
   controls = null
-  mesh = null
-# FUNCTIONS       
+
   init = ->
-    # SCENE
-    scene = new THREE.Scene()
-    
     # CAMERA
     SCREEN_WIDTH = targetWidth
     SCREEN_HEIGHT = targetHeight
@@ -21,15 +16,11 @@
     scene.add camera
     camera.position.set 0, 150, 400
     camera.lookAt scene.position
+    controls = new THREE.OrbitControls(camera, renderer.domElement)
     
     # RENDERER
-    renderer = new THREE.WebGLRenderer(antialias: true)
     renderer.setSize SCREEN_WIDTH, SCREEN_HEIGHT
-    container = domTarget
-    container.appendChild renderer.domElement
-    
-    # CONTROLS
-    controls = new THREE.OrbitControls(camera, renderer.domElement)
+    domTarget.appendChild renderer.domElement
     
     # LIGHT
     light = new THREE.PointLight(0xffffff)
@@ -46,33 +37,24 @@
     floor.position.y = -0.5
     floor.rotation.x = Math.PI / 2
     scene.add floor
-    
-    #//////////
-    # CUSTOM //
-    #//////////
+
     material = new THREE.MeshNormalMaterial()
     loader = new THREE.OBJLoader()
-    doit = (object) ->
+    setTexture = (object) ->
       object.traverse (child) ->
         child.material = material  if child instanceof THREE.Mesh
 
-      object.position.y = -80
-      object.scale.set 20, 20, 20
-      scene.add object
-
     objmesh = loader.parse(obj)
-    doit objmesh
+    setTexture objmesh
     objmesh.position.set 0, 40, 0
+    objmesh.scale.set 20, 20, 20
     scene.add objmesh
+
   animate = ->
     requestAnimationFrame animate
-    render()
-    update()
-  update = ->
+    renderer.render scene, camera
     controls.update()
     camera.up = new THREE.Vector3(0, 1, 0)
-  render = ->
-    renderer.render scene, camera
   
   init()
   animate()
