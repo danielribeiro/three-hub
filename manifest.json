@@ -11,7 +11,8 @@
       "js": [
         "vendor/jquery-2.0.3.js",
         "vendor/three.js",
-        "vendor/stats.min.js",
+        "vendor/OrbitControls.js",
+        "vendor/OBJLoader.js",
         "lib/app.js",
         "lib/cube.js"
 
