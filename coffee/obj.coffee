@@ -10,38 +10,12 @@ objScene =
 
     init: (obj, width, height) ->
         @camera = @buildCamera_(width, height)
-        @scene.add @camera
         @camera.position.set 0, 150, 400
         @camera.lookAt @scene.position
         @controls = new THREE.OrbitControls(@camera, @renderer.domElement)
-
-        # RENDERER
         @renderer.setSize width, height
         @domTarget.appendChild @renderer.domElement
-
-        # LIGHT
-        light = new THREE.PointLight(0xffffff)
-        light.position.set 100, 250, 100
-        @scene.add light
-
-        # FLOOR
-        floorMaterial = new THREE.MeshLambertMaterial(
-            color: 0x00FF88
-            side: THREE.DoubleSide
-        )
-        floorGeometry = new THREE.PlaneGeometry(1000, 1000, 10, 10)
-        floor = new THREE.Mesh(floorGeometry, floorMaterial)
-        floor.position.y = -0.5
-        floor.rotation.x = Math.PI / 2
-        @scene.add floor
-
-        loader = new THREE.OBJLoader()
-
-        objmesh = loader.parse(obj)
-        @setTexture_ objmesh
-        objmesh.position.set 0, 1, 0
-        objmesh.scale.set 20, 20, 20
-        @scene.add objmesh
+        @add @camera, @buildLight_(), @buildFloor_(), @buildObj_(obj)
 
     animate: ->
         requestAnimationFrame => @animate()
@@ -49,13 +23,40 @@ objScene =
         @controls.update()
         @camera.up = new THREE.Vector3(0, 1, 0)
 
+    add: (objs...) ->
+        for o in objs
+            @scene.add o
+        return
+
     #private methods
+    buildObj_: (obj) ->
+        loader = new THREE.OBJLoader()
+        objmesh = loader.parse(obj)
+        @setTexture_ objmesh
+        objmesh.position.set 0, 1, 0
+        objmesh.scale.set 20, 20, 20
+        objmesh
+
     buildCamera_: (width, height) ->
         viewAngle = 45
         aspect = width / height
         near = 0.1
         far = 20000
         new THREE.PerspectiveCamera(viewAngle, aspect, near, far)
+
+    buildLight_: ->
+        light = new THREE.PointLight(0xffffff)
+        light.position.set 100, 250, 100
+        light
+
+    buildFloor_: ->
+        floorMaterial = new THREE.MeshLambertMaterial(color: 0x00FF88, side: THREE.DoubleSide)
+        floorGeometry = new THREE.PlaneGeometry(1000, 1000, 10, 10)
+        floor = new THREE.Mesh(floorGeometry, floorMaterial)
+        floor.position.y = -0.5
+        floor.rotation.x = Math.PI / 2
+        floor
+
 
     setTexture_: (object) ->
         material = new THREE.MeshNormalMaterial()
