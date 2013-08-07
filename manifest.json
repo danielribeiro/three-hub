@@ -13,7 +13,6 @@
         "vendor/three.js",
         "vendor/OrbitControls.js",
         "vendor/OBJLoader.js",
-        "vendor/objdata.js",
         "lib/app.js",
         "lib/obj.js"
 
