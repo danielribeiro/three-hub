@@ -45,6 +45,7 @@ objScene =
         #TODO: use bouding box to set scale
         objmesh
 
+
     buildCamera_: (width, height) ->
         viewAngle = 45
         aspect = width / height
@@ -58,8 +59,8 @@ objScene =
         light
 
     buildFloor_: ->
-        floorMaterial = new THREE.MeshLambertMaterial(color: 0x00FF88, side: THREE.DoubleSide)
-        floorGeometry = new THREE.PlaneGeometry(1000, 1000, 10, 10)
+        floorMaterial = new THREE.MeshBasicMaterial(color: 0x000000, wireframe: true, wireframeLinewidth: 1)
+        floorGeometry = new THREE.PlaneGeometry(1700, 1700, 17, 17)
         floor = new THREE.Mesh(floorGeometry, floorMaterial)
         floor.position.y = -0.5
         floor.rotation.x = Math.PI / 2
