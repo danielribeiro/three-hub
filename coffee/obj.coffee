@@ -3,6 +3,9 @@ objScene =
     renderer: new THREE.WebGLRenderer(antialias: true)
     camera: null
     controls: null
+    segments: 17
+    segmentSize: 10
+
 
     drawObj: (obj, @domTarget, width, height) ->
         @init(obj, width, height)
@@ -10,7 +13,7 @@ objScene =
 
     init: (obj, width, height) ->
         @camera = @buildCamera_(width, height)
-        @camera.position.set 0, 150, 400
+        @camera.position.set 0, @stageSize(), @stageSize()
         @camera.lookAt @scene.position
         @controls = new THREE.OrbitControls(@camera, @renderer.domElement)
         @renderer.setSize width, height
@@ -40,11 +43,14 @@ objScene =
             box = child.geometry.boundingBox
             bbox.min.min box.min
             bbox.max.max box.max
+        sides = bbox.max.sub(bbox.min).toArray()
+        largetSide = Math.max sides...
+        scale = @stageSize() / largetSide
+        objmesh.scale.set scale, scale, scale
         objmesh.position.set 0, 1, 0
-        objmesh.scale.set 200, 200, 200
-        #TODO: use bouding box to set scale
         objmesh
 
+    stageSize: -> @segmentSize * 7
 
     buildCamera_: (width, height) ->
         viewAngle = 45
@@ -60,7 +66,8 @@ objScene =
 
     buildFloor_: ->
         floorMaterial = new THREE.MeshBasicMaterial(color: 0x000000, wireframe: true)
-        floorGeometry = new THREE.PlaneGeometry(1700, 1700, 17, 17)
+        sideLength = @segments * @segmentSize
+        floorGeometry = new THREE.PlaneGeometry(sideLength, sideLength, @segments, @segments)
         floor = new THREE.Mesh(floorGeometry, floorMaterial)
         floor.position.y = -0.5
         floor.rotation.x = Math.PI / 2
