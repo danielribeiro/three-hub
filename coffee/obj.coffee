@@ -59,7 +59,7 @@ objScene =
         light
 
     buildFloor_: ->
-        floorMaterial = new THREE.MeshBasicMaterial(color: 0x000000, wireframe: true, wireframeLinewidth: 1)
+        floorMaterial = new THREE.MeshBasicMaterial(color: 0x000000, wireframe: true)
         floorGeometry = new THREE.PlaneGeometry(1700, 1700, 17, 17)
         floor = new THREE.Mesh(floorGeometry, floorMaterial)
         floor.position.y = -0.5
