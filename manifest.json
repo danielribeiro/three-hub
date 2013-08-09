@@ -7,7 +7,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://www.github.com/*", "*://github.com/*"],
+      "matches": ["*://www.github.com/*/blob/*.obj", "*://github.com/*/blob/*.obj"],
       "js": [
         "vendor/jquery-2.0.3.js",
         "vendor/three.js",
