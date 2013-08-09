@@ -5,7 +5,7 @@ objScene =
     controls: null
     segments: 17
     segmentSize: 10
-
+    stageSize: -> @segmentSize * 7
 
     drawObj: (obj, @domTarget, width, height) ->
         @init(obj, width, height)
@@ -13,7 +13,7 @@ objScene =
 
     init: (obj, width, height) ->
         @camera = @buildCamera_(width, height)
-        @camera.position.set 0, @stageSize(), @stageSize()
+        @camera.position.set 0, @stageSize() / 2, @stageSize()
         @camera.lookAt @scene.position
         @controls = new THREE.OrbitControls(@camera, @renderer.domElement)
         @renderer.setSize width, height
@@ -49,8 +49,6 @@ objScene =
         objmesh.scale.set scale, scale, scale
         objmesh.position.set 0, 1, 0
         objmesh
-
-    stageSize: -> @segmentSize * 7
 
     buildCamera_: (width, height) ->
         viewAngle = 45
