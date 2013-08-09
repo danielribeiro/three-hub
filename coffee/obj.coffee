@@ -36,19 +36,26 @@ objScene =
         loader = new THREE.OBJLoader()
         objmesh = loader.parse(obj)
         @setTexture_ objmesh
-        bbox = new THREE.Box3()
-        objmesh.traverse (child) ->
-            return unless child instanceof THREE.Mesh
-            child.geometry.computeBoundingBox()
-            box = child.geometry.boundingBox
-            bbox.min.min box.min
-            bbox.max.max box.max
-        sides = bbox.max.sub(bbox.min).toArray()
-        largetSide = Math.max sides...
-        scale = @stageSize() / largetSide
+        scale = @findObjectScale objmesh
         objmesh.scale.set scale, scale, scale
         objmesh.position.set 0, 1, 0
         objmesh
+
+    findObjectScale: (objmesh) ->
+        bbox = @getBoundingBox_(objmesh)
+        sides = bbox.max.sub(bbox.min).toArray()
+        largetSide = Math.max sides...
+        return @stageSize() / largetSide
+
+    getBoundingBox_: (object3d) ->
+        boundingBox = new THREE.Box3()
+        object3d.traverse (child) ->
+            return unless child instanceof THREE.Mesh
+            child.geometry.computeBoundingBox()
+            box = child.geometry.boundingBox
+            boundingBox.min.min box.min
+            boundingBox.max.max box.max
+        boundingBox
 
     buildCamera_: (width, height) ->
         viewAngle = 45
@@ -80,3 +87,12 @@ objScene =
 
 @drawObj = (obj, domTarget, targetWidth, targetHeight) ->
     objScene.drawObj obj, domTarget, targetWidth, targetHeight
+
+#<div class="js-render-bar render-bar render-bar-with-modes">
+#<ul class="js-view-modes render-view-modes">
+#<li data-mode="wireframe" class="js-view-mode-item active">Wireframe</li>
+#<li data-mode="normal" class="js-view-mode-item">Surface Angle</li>
+#<li data-mode="solid" class="js-view-mode-item">Solid</li>
+#</ul>
+#<span class="render-message"><a href="https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl" target="_parent">clip.stl</a> rendered with ❤ by <a href="https://github.com" target="_parent">GitHub</a></span>
+#</div>
