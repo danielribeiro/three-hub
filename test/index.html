@@ -10,11 +10,14 @@
             overflow: hidden;
         }
         #container {
-            background-color: #ccccff;
             margin: 0 auto;
             width: 912px;
         }
+        #canvas-holder {
+            background-color: #ccccff;
+        }
     </style>
+    <link href="../vendor/render.github.com.css" type="text/css">
     <script src="../vendor/jquery-2.0.3.js"></script>
     <script src="../vendor/three.js"></script>
     <script src="../vendor/OrbitControls.js"></script>
@@ -23,13 +26,17 @@
     <script src="../lib/obj.js"></script>
     <script>
         $(function(){
-            drawObj(objdata.join("\n"), $("#container").get(0), 912, 465)
+            drawObj(objdata.join("\n"), $("#canvas-holder").get(0), 912, 465)
         });
     </script>
 </head>
 <body>
 
-<div id="container"></div>
+<div id="container">
+    <div id="canvas-holder"></div>
+    <div id="controls"></div>
+</div>
+
 
 </body>
 </html>
