@@ -6,6 +6,9 @@
     segments: 17
     segmentSize: 10
     stageSize: -> @segmentSize * 7
+    materials:
+        normal: new THREE.MeshNormalMaterial()
+
 
     drawObj: (obj, @domTarget, width, height) ->
         @init(obj, width, height)
@@ -42,7 +45,7 @@
     buildObj_: (obj) ->
         loader = new THREE.OBJLoader()
         objmesh = loader.parse(obj)
-        @setTexture_ objmesh
+        @setObject3DMaterial_ objmesh, @materials.normal
         scale = @findObjectScale objmesh
         objmesh.scale.set scale, scale, scale
         objmesh.position.set 0, 1, 0
@@ -86,9 +89,8 @@
         floor
 
 
-    setTexture_: (object) ->
-        material = new THREE.MeshNormalMaterial()
-        object.traverse (child) ->
+    setObject3DMaterial_: (object3d, material) ->
+        object3d.traverse (child) ->
             child.material = material if child instanceof THREE.Mesh
 
 
