@@ -16,8 +16,11 @@
         #canvas-holder {
             background-color: #ccccff;
         }
+        #controls-holder {
+            position: relative;
+        }
     </style>
-    <link href="../vendor/render.github.com.css" type="text/css">
+    <link href="../vendor/render.github.com.css" rel="stylesheet" type="text/css">
     <script src="../vendor/jquery-2.0.3.js"></script>
     <script src="../vendor/three.js"></script>
     <script src="../vendor/OrbitControls.js"></script>
@@ -36,7 +39,9 @@
 
 <div id="container">
     <div id="canvas-holder"></div>
-    <div id="controls"></div>
+    <div id="controls-holder">
+        <div class="js-render-bar render-bar render-bar-with-modes"><div id="controls"></div></div>
+    </div>
 </div>
 
 </body>
