@@ -44,15 +44,15 @@
     #private methods
     buildObj_: (obj) ->
         loader = new THREE.OBJLoader()
-        objmesh = loader.parse(obj)
-        @setObject3DMaterial_ objmesh, @materials.normal
-        scale = @findObjectScale objmesh
-        objmesh.scale.set scale, scale, scale
-        objmesh.position.set 0, 1, 0
-        objmesh
+        object3d = loader.parse(obj)
+        @setObject3DMaterial_ object3d, @materials.normal
+        scale = @findObjectScale object3d
+        object3d.scale.set scale, scale, scale
+        object3d.position.set 0, 1, 0
+        object3d
 
-    findObjectScale: (objmesh) ->
-        bbox = @getBoundingBox_(objmesh)
+    findObjectScale: (object3d) ->
+        bbox = @getBoundingBox_(object3d)
         sides = bbox.max.sub(bbox.min).toArray()
         largetSide = Math.max sides...
         return @stageSize() / largetSide
