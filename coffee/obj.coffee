@@ -1,4 +1,4 @@
-objScene =
+@objScene =
     scene: new THREE.Scene()
     renderer: new THREE.WebGLRenderer(antialias: true)
     camera: null
@@ -18,7 +18,8 @@ objScene =
         @controls = new THREE.OrbitControls(@camera, @renderer.domElement)
         @renderer.setSize width, height
         @domTarget.appendChild @renderer.domElement
-        @add @camera, @buildLight_(), @buildFloor_(), @buildObj_(obj)
+        @obj = @buildObj_(obj)
+        @add @camera, @buildLight_(), @buildFloor_(), @obj
 
     animate: ->
         requestAnimationFrame => @animate()
@@ -30,6 +31,12 @@ objScene =
         for o in objs
             @scene.add o
         return
+
+    setMaterial: (kind) ->
+        newmat = new THREE.MeshBasicMaterial(color: 0x000000, wireframe: true)
+        @obj.traverse (child) ->
+            child.material = newmat if child instanceof THREE.Mesh
+
 
     #private methods
     buildObj_: (obj) ->
@@ -83,6 +90,7 @@ objScene =
         material = new THREE.MeshNormalMaterial()
         object.traverse (child) ->
             child.material = material if child instanceof THREE.Mesh
+
 
 
 @drawObj = (obj, domTarget, targetWidth, targetHeight) ->

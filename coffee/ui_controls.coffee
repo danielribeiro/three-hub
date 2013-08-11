@@ -13,4 +13,4 @@
         el.on "click", ".js-view-mode-item", ->
             el.find(".js-view-mode-item.active").removeClass("active")
             $(@).addClass("active")
-            console.log("activating", $(@).data("mode"))
+            objScene.setMaterial $(@).data("mode")
