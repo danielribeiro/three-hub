@@ -22,15 +22,20 @@
         @camera.position.set 0, @stageSize() / 2, @stageSize()
         @camera.lookAt @scene.position
         @controls = new THREE.OrbitControls(@camera, @renderer.domElement)
+        @controls.autoRotateSpeed *= 2
         @renderer.setSize width, height
         @domTarget.appendChild @renderer.domElement
         @obj = @buildObj_(obj)
         @add @camera, @buildFloor_(), @obj
         @add @buildLights_()...
+        @lastInteraction = new Date()
+        @bindEvents_()
 
     animate: ->
         requestAnimationFrame => @animate()
         @renderer.render @scene, @camera
+        if @lastInteraction? and new Date() - @lastInteraction > 3000
+            @controls.autoRotate = true
         @controls.update()
         @camera.up = new THREE.Vector3(0, 1, 0)
 
@@ -101,3 +106,13 @@
             child.material = material if child instanceof THREE.Mesh
 
 
+    bindEvents_: ->
+        el = $(@renderer.domElement)
+        updateInteraction = =>
+            @controls.autoRotate = false
+            @lastInteraction = new Date()
+        el.mousedown =>
+            @controls.autoRotate = false
+            @lastInteraction = null
+        el.mouseup updateInteraction
+        el.on 'mousewheel DOMMouseScroll', updateInteraction
