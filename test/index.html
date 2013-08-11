@@ -32,6 +32,7 @@
         $(function(){
             drawObj(objdata.join("\n"), $("#canvas-holder").get(0), 912, 465);
             $("#controls").append(uicontrols.template);
+            uicontrols.bindEvents()
         });
     </script>
 </head>
