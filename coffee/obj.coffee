@@ -6,8 +6,11 @@
     segments: 17
     segmentSize: 10
     stageSize: -> @segmentSize * 7
+
     materials:
         normal: new THREE.MeshNormalMaterial()
+        solid: new THREE.MeshLambertMaterial(color: 0x00FF88, side: THREE.DoubleSide)
+        wireframe: new THREE.MeshBasicMaterial(color: 0x000000, wireframe: true)
 
 
     drawObj: (obj, @domTarget, width, height) ->
@@ -36,10 +39,9 @@
         return
 
     setMaterial: (kind) ->
-        newmat = new THREE.MeshBasicMaterial(color: 0x000000, wireframe: true)
-        @obj.traverse (child) ->
-            child.material = newmat if child instanceof THREE.Mesh
-
+        material = @materials[kind]
+        throw new Error("Unknown material: #{kind}") unless material?
+        @setObject3DMaterial_(@obj, material)
 
     #private methods
     buildObj_: (obj) ->
