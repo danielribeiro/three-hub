@@ -30,7 +30,7 @@
     <script src="../lib/ui_controls.js"></script>
     <script>
         $(function(){
-            drawObj(objdata.join("\n"), $("#canvas-holder").get(0), 912, 465);
+            objScene.drawObj(objdata.join("\n"), $("#canvas-holder").get(0), 912, 465);
             $("#controls").append(uicontrols.template);
             uicontrols.bindEvents()
         });

@@ -4,7 +4,7 @@ initApp = ->
     objData = objDataLines.toArray().join("\n")
     el = $(".blob-wrapper.js-blob-data")
     el.html("")
-    drawObj(objData, el.get(0), 912, 465)
+    objScene.drawObj(objData, el.get(0), 912, 465)
     el.append(uicontrols.template)
     uicontrols.bindEvents()
 

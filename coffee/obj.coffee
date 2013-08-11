@@ -96,6 +96,3 @@
             child.material = material if child instanceof THREE.Mesh
 
 
-
-@drawObj = (obj, domTarget, targetWidth, targetHeight) ->
-    objScene.drawObj obj, domTarget, targetWidth, targetHeight
