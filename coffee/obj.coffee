@@ -9,8 +9,8 @@
 
     materials:
         normal: new THREE.MeshNormalMaterial()
-        solid: new THREE.MeshLambertMaterial(color: 0x4183C4, side: THREE.DoubleSide)
-        wireframe: new THREE.MeshBasicMaterial(color: 0x111111, wireframe: true)
+        solid: new THREE.MeshPhongMaterial(color: 0x162f48, shininess: 30, specular: 0xFFFFFF, emissive: 0x162f48)
+        wireframe: new THREE.MeshPhongMaterial(color: 0x111111, shininess: 30, specular: 0xFFFFFF, emissive: 0x162f48, wireframe: true)
 
 
     drawObj: (obj, @domTarget, width, height) ->
@@ -25,7 +25,8 @@
         @renderer.setSize width, height
         @domTarget.appendChild @renderer.domElement
         @obj = @buildObj_(obj)
-        @add @camera, @buildLight_(), @buildFloor_(), @obj
+        @add @camera, @buildFloor_(), @obj
+        @add @buildLights_()...
 
     animate: ->
         requestAnimationFrame => @animate()
@@ -76,10 +77,14 @@
         far = 20000
         new THREE.PerspectiveCamera(viewAngle, aspect, near, far)
 
-    buildLight_: ->
-        light = new THREE.PointLight(0xffffff)
-        light.position.set 100, 250, 100
-        light
+    buildLights_: ->
+        lights = []
+        side = @stageSize()
+        for [x, y, z] in [[-1, 0, 0], [1, 0, 0], [0, 0, 1], [0, 0, -1], [0, -1, 0], [0, 2, 0]]
+            light = new THREE.PointLight(0xffffff, 1.3)
+            light.position.set x * side, y * side , z * side
+            lights.push light
+        lights
 
     buildFloor_: ->
         floorMaterial = new THREE.MeshBasicMaterial(color: 0x000000, wireframe: true)
