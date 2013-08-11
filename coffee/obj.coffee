@@ -10,7 +10,7 @@
     materials:
         normal: new THREE.MeshNormalMaterial()
         solid: new THREE.MeshPhongMaterial(color: 0x162f48, shininess: 30, specular: 0xFFFFFF, emissive: 0x162f48)
-        wireframe: new THREE.MeshPhongMaterial(color: 0x111111, shininess: 30, specular: 0xFFFFFF, emissive: 0x162f48, wireframe: true)
+        wireframe: new THREE.MeshPhongMaterial(color: 0x111111, shininess: 30, specular: 0x111111, emissive: 0x162f48, wireframe: true)
 
 
     drawObj: (obj, @domTarget, width, height) ->
