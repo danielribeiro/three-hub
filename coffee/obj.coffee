@@ -9,8 +9,8 @@
 
     materials:
         normal: new THREE.MeshNormalMaterial()
-        solid: new THREE.MeshLambertMaterial(color: 0x00FF88, side: THREE.DoubleSide)
-        wireframe: new THREE.MeshBasicMaterial(color: 0x000000, wireframe: true)
+        solid: new THREE.MeshLambertMaterial(color: 0x4183C4, side: THREE.DoubleSide)
+        wireframe: new THREE.MeshBasicMaterial(color: 0x111111, wireframe: true)
 
 
     drawObj: (obj, @domTarget, width, height) ->
@@ -47,7 +47,7 @@
     buildObj_: (obj) ->
         loader = new THREE.OBJLoader()
         object3d = loader.parse(obj)
-        @setObject3DMaterial_ object3d, @materials.normal
+        @setObject3DMaterial_ object3d, @materials.solid
         scale = @findObjectScale object3d
         object3d.scale.set scale, scale, scale
         object3d.position.set 0, 1, 0
