@@ -24,9 +24,11 @@
     <script src="../vendor/OBJLoader.js"></script>
     <script src="../test/objdata.js"></script>
     <script src="../lib/obj.js"></script>
+    <script src="../lib/ui_controls.js"></script>
     <script>
         $(function(){
-            drawObj(objdata.join("\n"), $("#canvas-holder").get(0), 912, 465)
+            drawObj(objdata.join("\n"), $("#canvas-holder").get(0), 912, 465);
+            $("#controls").append(uicontrols.template);
         });
     </script>
 </head>
@@ -36,7 +38,6 @@
     <div id="canvas-holder"></div>
     <div id="controls"></div>
 </div>
-
 
 </body>
 </html>

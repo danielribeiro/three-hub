@@ -5,6 +5,6 @@ initApp = ->
     el = $(".blob-wrapper.js-blob-data")
     el.html("")
     drawObj(objData, el.get(0), 912, 465)
-    el.append(@uicontrols.uicontrols)
+    el.append(uicontrols.template)
 
 $(initApp)
