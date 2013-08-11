@@ -6,5 +6,6 @@ initApp = ->
     el.html("")
     drawObj(objData, el.get(0), 912, 465)
     el.append(uicontrols.template)
+    uicontrols.bindEvents()
 
 $(initApp)
