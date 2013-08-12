@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Three-Hub",
-  "description": "This extension allows you to see 3d models from github directly",
+  "description": "View 3D models directly on GitHub",
   "version": "1.0",
 
   "content_scripts": [
