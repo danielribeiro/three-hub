@@ -10,7 +10,7 @@ Currently only obj formats are supported, however this is by far the most popula
 
 [COLLADA](http://collada.org/), [glTF](https://github.com/KhronosGroup/glTF) and other formats support will be added in the future.
 
-# Building
+## Building
 
 Run compile.sh to build the [CoffeeScript](http://coffeescript.org/) assets.
 
@@ -23,7 +23,7 @@ And then open http://localhost:8000/test in your local browser. You should see t
 ![](https://raw.github.com/danielribeiro/three-hub/master/docs/test.png)
 
 
-# Acknowledgements
+## Acknowledgements
 
 Thanks [Mr.doob](https://github.com/mrdoob) for the amazing work done in [three.js](https://github.com/mrdoob/three.js), which is the cornerstone of this project.
 
