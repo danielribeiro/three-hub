@@ -1,5 +1,5 @@
 initApp = ->
-    console.log "Three.hub loaded"
+    console.log "Running three-hub"
     objDataLines = $(".blob-line-code pre .line").map -> $(@).text()
     objData = objDataLines.toArray().join("\n")
     el = $(".blob-wrapper.js-blob-data")
@@ -9,3 +9,5 @@ initApp = ->
     uicontrols.bindEvents()
 
 $(initApp)
+
+console.log "Three-hub loaded"
