@@ -14,7 +14,7 @@
         "vendor/OrbitControls.js",
         "vendor/OBJLoader.js",
         "lib/ui_controls.js",
-        "lib/app.js",
+        "lib/three_hub.js",
         "lib/obj.js"
 
       ]
