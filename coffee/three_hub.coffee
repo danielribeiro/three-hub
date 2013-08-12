@@ -1,5 +1,5 @@
 initApp = ->
-    console.log "Running three-hub"
+    console.log "Running Three Hub"
     objDataLines = $(".blob-line-code pre .line").map -> $(@).text()
     objData = objDataLines.toArray().join("\n")
     el = $(".blob-wrapper.js-blob-data")
@@ -10,4 +10,4 @@ initApp = ->
 
 $(initApp)
 
-console.log "Three-hub loaded"
+console.log "Three Hub (https://github.com/danielribeiro/three-hub) loaded"
