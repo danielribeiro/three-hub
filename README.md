@@ -6,6 +6,8 @@ This extends the native support GitHub launched for stl format a few months ago:
 
 Currently only obj formats are supported, however this is by far the most popular 3D format on github, with over [195 thousand files listed](https://github.com/search?q=extension%3Aobj&type=Code&ref=searchresults) against [22 thousand](https://github.com/search?q=extension%3Astl&type=Code&s=indexed) stl files.
 
+![](https://raw.github.com/danielribeiro/three-hub/master/docs/spider.png)
+
 [COLLADA](http://collada.org/), [glTF](https://github.com/KhronosGroup/glTF) and other formats support will be added in the future.
 
 # Building
@@ -16,14 +18,16 @@ To see a demo working locally, you can serve the project folder with (for exampl
 
     $ python -m SimpleHTTPServer
 
-And then open http://localhost:8000/test/ in your local browser.
+And then open http://localhost:8000/test in your local browser. You should see the following:
+
+![](https://raw.github.com/danielribeiro/three-hub/master/docs/test.png)
 
 
 # Acknowledgements
 
 Thanks [Mr.doob](https://github.com/mrdoob) for the amazing work done in [three.js](https://github.com/mrdoob/three.js), which is the cornerstone of this project.
 
-Thanks to Lee Stemkoski for some [great demos](http://stemkoski.github.io/Three.js/) on lightning and shading.
+Thanks to [Lee Stemkoski](https://github.com/stemkoski) for some [great demos](http://stemkoski.github.io/Three.js/) on lightning and shading.
 
 ## Meta
 
