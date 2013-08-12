@@ -1,6 +1,6 @@
 # Three Hub
 
-Three Hub is a Chrome Extension that shows the 3D models from the model files when browsing GitHub.
+Three Hub is a Chrome Extension that shows the 3D models from the model files when browsing GitHub. You can install it [directly from Chrome Store](http://bit.ly/three-hub).
 
 This extends the native support GitHub launched for stl format a few months ago: https://github.com/blog/1465-stl-file-viewing
 
