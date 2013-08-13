@@ -1,12 +1,19 @@
 {
-  "manifest_version": 2,
   "name": "Three-Hub",
+  "manifest_version": 2,
+  "version": "1.0.2",
   "description": "View 3D models directly on GitHub",
-  "version": "1.0",
 
+  "icons": { "48": "icon48.png",
+            "128": "icon128.png" },
   "content_scripts": [
     {
-      "matches": ["*://www.github.com/*/blob/*.obj", "*://github.com/*/blob/*.obj"],
+      "matches": [
+        "http://www.github.com/*/blob/*.obj",
+        "https://www.github.com/*/blob/*.obj",
+        "http://github.com/*/blob/*.obj",
+        "https://github.com/*/blob/*.obj"
+        ],
       "css": ["vendor/render.github.com.css"],
       "js": [
         "vendor/jquery-2.0.3.js",
