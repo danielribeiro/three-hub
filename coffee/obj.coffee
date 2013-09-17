@@ -65,15 +65,7 @@
         largetSide = Math.max sides...
         return @stageSize() / largetSide
 
-    getBoundingBox_: (object3d) ->
-        boundingBox = new THREE.Box3()
-        object3d.traverse (child) ->
-            return unless child instanceof THREE.Mesh
-            child.geometry.computeBoundingBox()
-            box = child.geometry.boundingBox
-            boundingBox.min.min box.min
-            boundingBox.max.max box.max
-        boundingBox
+    getBoundingBox_: (object3d) -> new THREE.Box3().setFromObject(object3d)
 
     buildCamera_: (width, height) ->
         viewAngle = 45
