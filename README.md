@@ -18,7 +18,7 @@ To see a demo working locally, you can serve the project folder with (for exampl
 
     $ python -m SimpleHTTPServer
 
-And then open http://localhost:8000/test in your local browser. You should see the following:
+And then open [http://localhost:8000/test](http://localhost:8000/test) in your local browser. You should see the following:
 
 ![](https://raw.github.com/danielribeiro/three-hub/master/docs/test.png)
 
