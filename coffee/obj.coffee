@@ -84,12 +84,9 @@
         lights
 
     buildFloor_: ->
-        floorMaterial = new THREE.MeshBasicMaterial(color: 0x000000, wireframe: true)
-        sideLength = @segments * @segmentSize
-        floorGeometry = new THREE.PlaneGeometry(sideLength, sideLength, @segments, @segments)
-        floor = new THREE.Mesh(floorGeometry, floorMaterial)
+        sideLength = @segments * @segmentSize / 2
+        floor = new THREE.GridHelper sideLength, @segmentSize
         floor.position.y = -0.5
-        floor.rotation.x = Math.PI / 2
         floor
 
 
