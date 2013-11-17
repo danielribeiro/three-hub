@@ -20,7 +20,9 @@ To see a demo working locally, you can serve the project folder with (for exampl
 
 And then open [http://localhost:8000/test](http://localhost:8000/test) in your local browser. You should see the following:
 
-![](https://raw.github.com/danielribeiro/three-hub/master/docs/test.png)
+[![](https://raw.github.com/danielribeiro/three-hub/master/docs/test.png)](http://danielribeiro.github.io/three-hub/)
+
+The page you will see running be like this [this](http://danielribeiro.github.io/three-hub/)
 
 
 ## Acknowledgements
