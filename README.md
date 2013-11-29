@@ -1,10 +1,10 @@
 # Three Hub
 
-Three Hub is a Chrome Extension that shows the 3D models from the model files when browsing GitHub. You can install it [directly from Chrome Store](http://bit.ly/three-hub).
+Three Hub is a Chrome Extension that shows the 3D models from model files when browsing GitHub. You can install it [directly from Chrome Store](http://bit.ly/three-hub).
 
-This extends the native support GitHub launched for stl format a few months ago: https://github.com/blog/1465-stl-file-viewing
+This extends the native support GitHub launched for STL: https://github.com/blog/1465-stl-file-viewing
 
-Currently only obj format is supported, however this is by far the most popular 3D format on github, with over [209 thousand files listed](https://github.com/search?q=extension%3Aobj&type=Code&ref=searchresults) against [23 thousand](https://github.com/search?q=extension%3Astl&type=Code&s=indexed) stl files.
+Currently only OBJ format is supported, however this is by far the most popular 3D format on github, with over [209 thousand files listed](https://github.com/search?q=extension%3Aobj&type=Code&ref=searchresults) against [23 thousand](https://github.com/search?q=extension%3Astl&type=Code&s=indexed) STL files.
 
 ![](https://raw.github.com/danielribeiro/three-hub/master/docs/spider.png)
 
@@ -29,7 +29,7 @@ The page you will see running be like this [this](http://danielribeiro.github.io
 
 Thanks [Mr.doob](https://github.com/mrdoob) for the amazing work done in [three.js](https://github.com/mrdoob/three.js), which is the cornerstone of this project.
 
-Thanks to [Lee Stemkoski](https://github.com/stemkoski) for some [great demos](http://stemkoski.github.io/Three.js/) on lightning and shading.
+Thanks to [Lee Stemkoski](https://github.com/stemkoski) for the [great demos](http://stemkoski.github.io/Three.js/) on lightning and shading.
 
 ## Meta
 
