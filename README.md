@@ -4,7 +4,7 @@ Three Hub is a Chrome Extension that shows the 3D models from model files when b
 
 This extends the native support GitHub launched for STL: https://github.com/blog/1465-stl-file-viewing
 
-Currently only OBJ format is supported, however this is by far the most popular 3D format on github, with over [209 thousand files listed](https://github.com/search?q=extension%3Aobj&type=Code&ref=searchresults) against [23 thousand](https://github.com/search?q=extension%3Astl&type=Code&s=indexed) STL files.
+Currently only OBJ format is supported, however this is by far the most popular 3D format on github, with over [209 thousand files listed](https://github.com/search?q=extensions%3Aobj&type=Code&ref=searchresults) against [23 thousand](https://github.com/search?q=extensions%3Astl&type=Code&s=indexed) STL files.
 
 ![](https://raw.github.com/danielribeiro/three-hub/master/docs/spider.png)
 
