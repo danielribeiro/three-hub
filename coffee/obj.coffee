@@ -24,6 +24,7 @@
         @controls = new THREE.OrbitControls(@camera, @renderer.domElement)
         @controls.autoRotateSpeed *= 2
         @renderer.setSize width, height
+        @renderer.setClearColor 0xccccff, 1
         @domTarget.appendChild @renderer.domElement
         @obj = @buildObj_(obj)
         @add @camera, @buildFloor_(), @obj
