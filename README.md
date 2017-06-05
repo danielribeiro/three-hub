@@ -8,8 +8,6 @@ Currently only OBJ format is supported, which is one of most popular 3D formats 
 
 ![](https://raw.github.com/danielribeiro/three-hub/master/docs/spider.png)
 
-[COLLADA](http://collada.org/), [glTF](https://github.com/KhronosGroup/glTF) and other formats support will be added in the future.
-
 ## Building
 
 Run compile.sh to build the [CoffeeScript](http://coffeescript.org/) assets.
